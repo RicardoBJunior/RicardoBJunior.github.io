@@ -1,0 +1,16 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#imageGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imageResult {
+    margin: 10px;
+    max-width: 200px;
+}
