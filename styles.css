@@ -12,9 +12,11 @@ body {
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
-    padding: 30px;
+    padding: 50px; /* Aumentei o padding para dar mais espaço */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 500px; /* Aumentei a largura */
+    height: 300px; /* Adicionei altura */
+    position: relative; /* Para que o botão possa se mover dentro da caixa */
 }
 
 h1 {
@@ -27,6 +29,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    position: relative; /* Garantindo que os botões respeitem o espaço interno */
 }
 
 button {
@@ -40,6 +43,7 @@ button {
     transition: background-color 0.3s ease;
     outline: none;
     min-width: 80px;
+    position: relative; /* Para movimento */
 }
 
 button:hover {
@@ -48,7 +52,7 @@ button:hover {
 
 #noButton {
     background-color: #dc3545;
-    position: relative;
+    transition: all 0.2s ease; /* Mais rápido para esquivar */
 }
 
 #noButton:hover {

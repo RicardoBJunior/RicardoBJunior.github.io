@@ -1,37 +1,38 @@
 const noButton = document.getElementById('noButton');
 
-// Função para calcular uma nova posição aleatória para o botão
+// Função para mover o botão para uma posição aleatória
 function moveButton() {
     const container = document.querySelector('.container');
     const containerRect = container.getBoundingClientRect();
     const noButtonRect = noButton.getBoundingClientRect();
 
-    // Adiciona um deslocamento aleatório maior para o botão
-    const offsetX = Math.random() * (containerRect.width - noButtonRect.width) - noButtonRect.width / 2;
-    const offsetY = Math.random() * (containerRect.height - noButtonRect.height) - noButtonRect.height / 2;
+    // Calcula a nova posição aleatória dentro dos limites da caixa
+    const offsetX = Math.random() * (containerRect.width - noButtonRect.width);
+    const offsetY = Math.random() * (containerRect.height - noButtonRect.height);
 
     noButton.style.position = 'absolute';
-    noButton.style.left = `${Math.max(0, offsetX)}px`;
-    noButton.style.top = `${Math.max(0, offsetY)}px`;
+    noButton.style.left = `${offsetX}px`;
+    noButton.style.top = `${offsetY}px`;
 }
 
-// Função para mover o botão ao passar o mouse por cima
+// Função para detectar a proximidade do mouse e mover o botão
 function handleMouseOver(event) {
-    // Verifica se o mouse está suficientemente próximo para mover o botão
-    const distance = 80; // Distância em pixels para detectar a proximidade do mouse
+    const distance = 50; // Distância em pixels para detectar a proximidade do mouse
     const noButtonRect = noButton.getBoundingClientRect();
 
-    if (
-        event.clientX >= noButtonRect.left - distance &&
-        event.clientX <= noButtonRect.right + distance &&
-        event.clientY >= noButtonRect.top - distance &&
-        event.clientY <= noButtonRect.bottom + distance
-    ) {
+    // Calcula a distância do mouse até o botão
+    const mouseDistance = Math.sqrt(
+        Math.pow(event.clientX - (noButtonRect.left + noButtonRect.width / 2), 2) +
+        Math.pow(event.clientY - (noButtonRect.top + noButtonRect.height / 2), 2)
+    );
+
+    // Verifica se o mouse está suficientemente próximo
+    if (mouseDistance < distance) {
         moveButton();
     }
 }
 
-// Adiciona o evento de mouseover ao botão "Não"
+// Adiciona o evento de movimento do mouse ao botão "Não"
 noButton.addEventListener('mousemove', handleMouseOver);
 
 // Evento para o botão "Sim"
