@@ -6,7 +6,7 @@ function moveButton() {
     const containerRect = container.getBoundingClientRect();
     const noButtonRect = noButton.getBoundingClientRect();
 
-    // Calcula a nova posição aleatória dentro dos limites da caixa
+    // Calcula uma nova posição aleatória dentro dos limites da caixa
     const offsetX = Math.random() * (containerRect.width - noButtonRect.width);
     const offsetY = Math.random() * (containerRect.height - noButtonRect.height);
 
@@ -17,7 +17,7 @@ function moveButton() {
 
 // Função para detectar a proximidade do mouse e mover o botão
 function handleMouseOver(event) {
-    const distance = 50; // Distância em pixels para detectar a proximidade do mouse
+    const distance = 80; // Distância em pixels para detectar a proximidade do mouse
     const noButtonRect = noButton.getBoundingClientRect();
 
     // Calcula a distância do mouse até o botão
