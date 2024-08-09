@@ -18,7 +18,7 @@ function moveButton() {
 // Função para mover o botão ao passar o mouse por cima
 function handleMouseOver(event) {
     // Verifica se o mouse está suficientemente próximo para mover o botão
-    const distance = 50; // Distância em pixels para detectar a proximidade do mouse
+    const distance = 80; // Distância em pixels para detectar a proximidade do mouse
     const noButtonRect = noButton.getBoundingClientRect();
 
     if (
